@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../auth/AuthProvider';
+import nlogo from "../assets/img/navlogo.png"
 
 const Navbar = () => {
   const { user, logOutUser } = useContext(AuthContext);
@@ -10,11 +11,11 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className='navbar bg-[#1D4ED8] text-white text-lg shadow-sm sticky top-0 z-10 items-center'>
+    <nav className='navbar bg-[#E21C6F] text-white text-lg shadow-sm sticky top-0 z-10 items-center'>
       <div className='container mx-auto px-4 flex items-center justify-between'>
         {/* Logo */}
         <Link to='/' className='flex gap-2 items-center'>
-          <span className='font-bold text-2xl md:text-4xl'>WhereIsIt</span>
+          <img className='w-24 object-cover h-14 text-white' src={nlogo} alt="" /> 
         </Link>
 
         {/* Hamburger Menu */}
