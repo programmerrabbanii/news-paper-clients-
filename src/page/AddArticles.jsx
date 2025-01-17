@@ -23,7 +23,7 @@ const AddArticles = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: value});
   };
 
   const handleTagsChange = (selectedOptions) => {
@@ -42,7 +42,7 @@ const AddArticles = () => {
     }
 
     // Upload image to imgbb
-    const imgbbApiKey = 'b11e60bef63539d7b782ac0c4cf61a1e'; // Replace with your imgbb API key
+    const imgbbApiKey = 'b11e60bef63539d7b782ac0c4cf61a1e'; 
     const imageData = new FormData();
     imageData.append('image', formData.image);
 
@@ -54,12 +54,12 @@ const AddArticles = () => {
       const imageUrl = imageResponse.data.data.url;
 
       // Prepare final data
-      const articleData = {
-        title: formData.title,
+      const articleData = { 
+        title: formData.title, 
         image: imageUrl,
-        publisher: formData.publisher,
-        tags: formData.tags.map((tag) => tag.value),
-        description: formData.description,
+        publisher: formData.publisher, 
+        tags: formData.tags.map((tag) => tag.value), 
+        description: formData.description, 
       };
 
       // Post article data to the backend
@@ -142,6 +142,7 @@ const AddArticles = () => {
             required
           ></textarea>
         </div>
+    
 
         <button
           type="submit"
