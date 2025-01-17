@@ -21,10 +21,13 @@ const Slider = () => {
     return <p>Error: {error.message}</p>;
   }
 
+  // ভিউ কাউন্ট অনুযায়ী ডেটা সাজানো
+  const sortedData = [...data].sort((a, b) => b.viewCount - a.viewCount);
+
   // স্লাইডারের UI
   return (
     <div className="carousel w-full">
-      {data.map((item, index) => (
+      {sortedData.slice(0,6).map((item, index) => (
         <div
           key={item._id}
           id={`slide${index + 1}`}
@@ -41,13 +44,13 @@ const Slider = () => {
           </div>
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
             <a
-              href={`#slide${index === 0 ? data.length : index}`}
+              href={`#slide${index === 0 ? sortedData.length : index}`}
               className="btn btn-circle"
             >
               ❮
             </a>
             <a
-              href={`#slide${(index + 1) % data.length + 1}`}
+              href={`#slide${(index + 1) % sortedData.length + 1}`}
               className="btn btn-circle"
             >
               ❯

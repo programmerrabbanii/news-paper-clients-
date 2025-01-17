@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddArticles = () => {
   const [formData, setFormData] = useState({
@@ -42,7 +43,7 @@ const AddArticles = () => {
     }
 
     // Upload image to imgbb
-    const imgbbApiKey = 'b11e60bef63539d7b782ac0c4cf61a1e'; 
+    const imgbbApiKey = '2fd4689d6fca765342920d0528a36aff'; 
     const imageData = new FormData();
     imageData.append('image', formData.image);
 
@@ -57,18 +58,31 @@ const AddArticles = () => {
       const articleData = { 
         title: formData.title, 
         image: imageUrl,
+        viewCount: 0,
         publisher: formData.publisher, 
         tags: formData.tags.map((tag) => tag.value), 
         description: formData.description, 
       };
 
       // Post article data to the backend
-      const response = await axios.post('/api/articles', articleData); // Replace '/api/articles' with your API endpoint
+      const response = await axios.post('http://localhost:5000/news', articleData); // Replace '/api/articles' with your API endpoint
       console.log(response.data);
-      alert('Article submitted successfully!');
+      Swal.fire({
+        position: "top-end", 
+        icon: "success",
+        title: "Article submitted successfully!",
+        showConfirmButton: false,
+        timer: 1500
+      });
     } catch (error) {
       console.error('Error uploading image or submitting form:', error);
-      alert('Error occurred while submitting the form.');
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Error occurred while submitting the form.",
+        showConfirmButton: false,
+        timer: 1500
+      });
     }
   };
 
