@@ -5,6 +5,7 @@ import Slider from '../components/Slider';
 import Plans from '../components/Plans';
 // import Statistics from '../components/Statistics';
 import SubscriptionPage from '../components/SubscriptionPage';
+import Testimonials from '../components/Testimonials';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
            {/* <Statistics></Statistics> */}
            <Plans></Plans>
            <SubscriptionPage></SubscriptionPage>
+           <Testimonials></Testimonials>
 
         </div>
     );
