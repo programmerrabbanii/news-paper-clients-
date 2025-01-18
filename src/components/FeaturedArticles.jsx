@@ -8,7 +8,7 @@ const FeaturedArticles = () => {
       title: "The Future of Technology",
       description:
         "Discover how emerging technologies are shaping the future of various industries...",
-      image: "https://via.placeholder.com/400x200",
+      image: "https://i.ibb.co.com/vH70pyL/siednji-leon-jbx99-DSg-r-M-unsplash.jpg",
       viewCount: 1500,
     },
     {
@@ -16,7 +16,7 @@ const FeaturedArticles = () => {
       title: "Top 10 Travel Destinations",
       description:
         "Explore the most beautiful and adventurous places to visit this year...",
-      image: "https://via.placeholder.com/400x200",
+      image: "https://i.ibb.co.com/yYcq8mv/joseph-costa-l-WHJwo-SZf7-M-unsplash.jpg",
       viewCount: 1200,
     },
     {
@@ -24,7 +24,7 @@ const FeaturedArticles = () => {
       title: "Healthy Living Tips",
       description:
         "Learn simple and effective tips to maintain a healthy and balanced lifestyle...",
-      image: "https://via.placeholder.com/400x200",
+      image: "https://i.ibb.co.com/Jx32nkd/brooke-lark-W9-OKrx-Bqi-ZA-unsplash.jpg",
       viewCount: 1100,
     },
     {
@@ -32,7 +32,7 @@ const FeaturedArticles = () => {
       title: "Understanding Artificial Intelligence",
       description:
         "An introduction to AI and its applications in everyday life...",
-      image: "https://via.placeholder.com/400x200",
+      image: "https://i.ibb.co.com/2NyNT2T/maxim-tolchinskiy-v3z79-Wzs9k-A-unsplash.jpg",
       viewCount: 1000,
     },
     {
@@ -40,7 +40,7 @@ const FeaturedArticles = () => {
       title: "Mastering Personal Finance",
       description:
         "Essential tips for managing your finances and planning for the future...",
-      image: "https://via.placeholder.com/400x200",
+      image: "https://i.ibb.co.com/vxc6shD/traxer-k-M6-QNrgo0-YE-unsplash.jpg",
       viewCount: 900,
     },
     {
@@ -48,10 +48,10 @@ const FeaturedArticles = () => {
         title: "The Rise of Renewable Energy",
         description:
           "Explore how renewable energy sources like solar and wind power are transforming the energy industry...",
-        image: "https://via.placeholder.com/400x200",
+        image: "https://i.ibb.co.com/XzbvSTL/riccardo-annandale-7e2pe9wj-L9-M-unsplash.jpg",
         viewCount: 1300,
       }, 
-  ];
+  ]; 
 
   return (
     <section className="py-10">
