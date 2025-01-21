@@ -56,7 +56,8 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            <li>
+            {
+              user? <li>
               <Link
                 to='/addartical'
                 className={`hover:text-gray-200 ${
@@ -65,7 +66,8 @@ const Navbar = () => {
               >
                 Add Artical
               </Link>
-            </li>
+            </li> : null
+            }
             
               <li>
                 <Link
@@ -79,7 +81,7 @@ const Navbar = () => {
               </li>
             
             
-              <li>
+              {/* <li>
                 <Link
                   to='/dashboard'
                   className={`hover:text-gray-200 ${
@@ -88,10 +90,11 @@ const Navbar = () => {
                 >
                   Dashboard
                 </Link>
-              </li>
+              </li> */}
             
            
-              <li>
+              {
+                user? <li>
                 <Link
                   to='/myartical'
                   className={`hover:text-gray-200 ${
@@ -100,8 +103,10 @@ const Navbar = () => {
                 >
                  My Artical
                 </Link>
-              </li>
-              <li>
+              </li> : null
+              }
+              {
+                user? <li>
                 <Link
                   to='/subscription'
                   className={`hover:text-gray-200 ${
@@ -110,9 +115,11 @@ const Navbar = () => {
                 >
                  Subscription
                 </Link>
-              </li>
+              </li> :null
+              }
 
-              <li>
+              {
+                user? <li>
                 <Link
                   to='/premium'
                   className={`hover:text-gray-200 ${
@@ -121,7 +128,8 @@ const Navbar = () => {
                 >
                  Premium Artical
                 </Link>
-              </li>
+              </li> : null
+              }
            
             {!user ? (
               <li>
@@ -133,7 +141,7 @@ const Navbar = () => {
                 >
                   Login
                 </Link>
-              </li>
+              </li> 
             ) : (
               <li className='flex items-center'>
                 <img

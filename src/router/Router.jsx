@@ -10,6 +10,7 @@ import Subscription from "../page/Subscription";
 import PremiumArticles from "../page/PremiumArticles";
 import Register from "../page/Register";
 import Login from "../page/Login";
+import Private from "./Private";
 
 const router=createBrowserRouter([
     {
@@ -23,27 +24,27 @@ const router=createBrowserRouter([
             },
             {
                 path:"/addartical",
-                element:<AddArticles></AddArticles>
+                element:<Private><AddArticles></AddArticles></Private>
             },
             {
                 path:"/allartical",
                 element:<AllArticles></AllArticles>
             },
-            {
-                path:"/dashboard",
-                element:<Dashboard></Dashboard>
-            },
+            // {
+            //     path:"/dashboard",
+            //     element:<Dashboard></Dashboard>
+            // },
             {
                 path:"/myartical",
-                element:<MyArticles></MyArticles>
+                element:<Private><MyArticles></MyArticles></Private>
             },
             {
                 path:"/subscription",
-                element:<Subscription></Subscription>
+                element:<Private><Subscription></Subscription></Private>
             },
             {
                 path:"/premium",
-                element:<PremiumArticles></PremiumArticles>
+                element:<Private><PremiumArticles></PremiumArticles></Private>
             },
             {
                 path:"/register",
