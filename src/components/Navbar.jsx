@@ -142,7 +142,7 @@ const Navbar = () => {
                   Login
                 </Link>
               </li> 
-            ) : (
+            ) : (  
               <li className='flex items-center'>
                 <img
                   referrerPolicy='no-referrer'

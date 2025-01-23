@@ -10,7 +10,7 @@ const PostCard = () => {
       return res.data; 
     },
   });
-
+ 
   if (isLoading) {
     return <p>Loading...</p>;
   }
