@@ -4,7 +4,7 @@ import Slider from '../components/Slider';
 // import AllPublishers from '../components/AllPublishers';
 import Plans from '../components/Plans';
 // import Statistics from '../components/Statistics';
-import SubscriptionPage from '../components/SubscriptionPage';
+// import SubscriptionPage from '../components/SubscriptionPage';
 import Testimonials from '../components/Testimonials';
 import FeaturedArticles from '../components/FeaturedArticles';
 
@@ -16,7 +16,7 @@ const Home = () => {
            {/* <AllPublishers></AllPublishers> */}
            {/* <Statistics></Statistics> */}
            <Plans></Plans>
-           <SubscriptionPage></SubscriptionPage>
+           {/* <SubscriptionPage></SubscriptionPage> */}
            <FeaturedArticles></FeaturedArticles>
            <Testimonials></Testimonials>
 

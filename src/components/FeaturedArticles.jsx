@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const FeaturedArticles = () => {
   // Static list of articles
@@ -54,7 +55,7 @@ const FeaturedArticles = () => {
   ]; 
 
   return (
-    <section className="py-10">
+    <section className="py-10 w-11/12 mx-auto">
       <h2 className="text-3xl font-bold text-center mb-6">Trending Articles</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {articles.map((article) => (
@@ -83,12 +84,12 @@ const FeaturedArticles = () => {
         ))}
       </div>
       <div className="text-center mt-6">
-        <a
-          href="/articles"
-          className="btn btn-primary bg-blue-500 text-white px-6 py-2 rounded-lg"
+        <Link to="/allartical"
+          
+          className="btn btn-primary bg-[#070CEC] text-white px-6 py-2 rounded-lg"
         >
           View All Articles
-        </a>
+        </Link>
       </div>
     </section>
   );

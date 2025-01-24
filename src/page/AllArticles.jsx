@@ -30,7 +30,7 @@ const AllArticles = () => {
     }
 
     return (
-        <div>
+        <div className='w-11/12 mx-auto'>
             <h3 className="text-2xl font-bold mb-4">All Articles</h3>
 
             {/* Filter Section */}
@@ -83,7 +83,7 @@ const AllArticles = () => {
                             className={`mt-2 px-4 py-2 rounded ${
                                 article.isPremium && !article.isSubscribed
                                     ? 'bg-gray-400 cursor-not-allowed'
-                                    : 'bg-blue-500 text-white'
+                                    : 'bg-[#070CEC] text-white'
                             }`}
                             disabled={article.isPremium && !article.isSubscribed}
                             onClick={() =>
