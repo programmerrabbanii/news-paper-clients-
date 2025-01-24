@@ -1,12 +1,14 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import axios from "axios";
 
 const MyArticles = () => {
+    const queryClient = useQueryClient();
+
   const { data: articles, isLoading, error } = useQuery({
     queryKey: ["myArticles"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/my-articles");
+      const res = await axios.get("http://localhost:5000/news");
       return res.data;
     },
   });
@@ -15,6 +17,8 @@ const MyArticles = () => {
     return (
       <div className="flex justify-center items-center h-screen">
         <p className="text-blue-500 text-xl font-semibold">Loading articles...</p>
+        <span className="loading loading-bars loading-lg"></span>
+
       </div>
     );
   }
@@ -31,6 +35,7 @@ const MyArticles = () => {
 
   // Delete Article
   const handleDelete = async (id) => {
+
     Swal.fire({
       title: "Are you absolutely sure?",
       text: "This action cannot be undone!",
@@ -43,7 +48,9 @@ const MyArticles = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
+            
           await axios.delete(`http://localhost:5000/articles/${id}`);
+          queryClient.invalidateQueries({ queryKey: ["myArticles"] });
           Swal.fire("Deleted!", "Your article has been deleted.", "success");
         } catch (err) {
           Swal.fire("Error!", "Failed to delete the article.", "error");
@@ -149,13 +156,13 @@ const MyArticles = () => {
                   </button>
                   <button
                     className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition"
-                    onClick={() => handleUpdate(article.id)}
+                    onClick={() => handleUpdate(article._id)}
                   >
                     Update
                   </button>
                   <button
                     className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition"
-                    onClick={() => handleDelete(article.id)}
+                    onClick={() => handleDelete(article._id)}
                   >
                     Delete
                   </button>
