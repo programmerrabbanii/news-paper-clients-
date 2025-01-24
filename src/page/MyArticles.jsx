@@ -73,10 +73,15 @@ const MyArticles = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
+          // Backend update request
           await axios.put(`http://localhost:5000/articles/${id}`, {
             title: result.value,
           });
-          Swal.fire(
+  
+          // Invalidate the cache to refetch updated data
+          queryClient.invalidateQueries({ queryKey: ["myArticles"] });
+  
+          Swal.fire( 
             "Updated!",
             "Your article has been updated successfully.",
             "success"
@@ -87,6 +92,7 @@ const MyArticles = () => {
       }
     });
   };
+  
 
   // View Decline Reason
   const handleViewReason = (reason) => {
