@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from '../components/Slider';
-// import TrendingArticles from '../components/TrendingArticles';
+import TrendingArticles from '../components/TrendingArticles';
 // import AllPublishers from '../components/AllPublishers';
 import Plans from '../components/Plans';
 // import Statistics from '../components/Statistics';
@@ -12,7 +12,7 @@ const Home = () => {
     return (
         <div>
            <Slider></Slider>
-           {/* <TrendingArticles></TrendingArticles> */}
+           <TrendingArticles></TrendingArticles>
            {/* <AllPublishers></AllPublishers> */}
            {/* <Statistics></Statistics> */}
            <Plans></Plans>
