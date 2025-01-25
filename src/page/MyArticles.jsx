@@ -1,6 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const MyArticles = () => {
     const queryClient = useQueryClient();
@@ -148,9 +149,10 @@ const MyArticles = () => {
                   {article.isPremium ? "Yes" : "No"}
                 </td>
                 <td className="px-4 py-2 border flex items-center justify-center gap-2">
-                  <button
+                  <Link to={`/articles/${article._id}`}
                     className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
                     onClick={() =>
+                      
                       Swal.fire(
                         "Details",
                         `Details for article: ${article.title}`,
@@ -159,7 +161,7 @@ const MyArticles = () => {
                     }
                   >
                     Details
-                  </button>
+                  </Link>
                   <button
                     className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition"
                     onClick={() => handleUpdate(article._id)}
@@ -179,7 +181,7 @@ const MyArticles = () => {
                     >
                       View Reason
                     </button>
-                  )}
+                  )} 
                 </td>
               </tr>
             ))}

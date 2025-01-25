@@ -11,6 +11,7 @@ import PremiumArticles from "../page/PremiumArticles";
 import Register from "../page/Register";
 import Login from "../page/Login";
 import Private from "./Private";
+import ArticleDetails from "../page/ArticalDeteles";
 
 const router=createBrowserRouter([
     {
@@ -45,6 +46,10 @@ const router=createBrowserRouter([
             {
                 path:"/premium",
                 element:<Private><PremiumArticles></PremiumArticles></Private>
+            },
+            {
+                path: "/articles/:id",
+                element: <Private><ArticleDetails/></Private>,
             },
             {
                 path:"/register",
