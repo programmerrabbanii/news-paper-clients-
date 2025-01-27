@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 const Register = () => {
   const { createUser, setUser, loginGoogle } = useContext(AuthContext);
@@ -22,25 +23,27 @@ const Register = () => {
     const password = e.target.password.value;
     const photo = e.target.photo.value;
 
-    // Password Validation 
+    // Password Validation
     if (!/[A-Z]/.test(password)) {
-        setErrorPassword("Password must include at least one uppercase letter.");
-        return;
-      } else if (!/[a-z]/.test(password)) {
-        setErrorPassword("Password must include at least one lowercase letter.");
-        return;
-      } else if (!/[0-9]/.test(password)) {
-        setErrorPassword("Password must include at least one number.");
-        return;
-      } else if (!/[!@#$%^&*]/.test(password)) {
-        setErrorPassword("Password must include at least one special character (!@#$%^&*).");
-        return;
-      } else if (password.length < 6) {
-        setErrorPassword("Password must be at least 6 characters long.");
-        return;
-      } else {
-        setErrorPassword("");
-      }
+      setErrorPassword("Password must include at least one uppercase letter.");
+      return;
+    } else if (!/[a-z]/.test(password)) {
+      setErrorPassword("Password must include at least one lowercase letter.");
+      return;
+    } else if (!/[0-9]/.test(password)) {
+      setErrorPassword("Password must include at least one number.");
+      return;
+    } else if (!/[!@#$%^&*]/.test(password)) {
+      setErrorPassword(
+        "Password must include at least one special character (!@#$%^&*)."
+      );
+      return;
+    } else if (password.length < 6) {
+      setErrorPassword("Password must be at least 6 characters long.");
+      return;
+    } else {
+      setErrorPassword("");
+    }
 
     // Create User
     createUser(email, password)
@@ -51,7 +54,13 @@ const Register = () => {
           photoURL: photo,
         })
           .then(() => {
-            setUser(user);
+            // Post user data to the server
+            axios.post(`http://localhost:5000/users?email=${email}`, {
+              name,
+              email,
+              photo
+            });
+            setUser(user); 
             Swal.fire({
               position: "top-end",
               icon: "success",
@@ -201,22 +210,21 @@ const Register = () => {
                   Register
                 </button>
               </div>
-               {/* Google Login Button */}
-            <div className="form-control">
-              <button
-                onClick={handleGoogleLogin}
-                type="button"
-                className="btn btn-outline btn-secondary w-full py-3 rounded-lg text-lg font-medium"
-              >
-                <span className="mr-2">
-                  <FaGoogle></FaGoogle>
-                </span>{" "}
-                Login with Google
-              </button>
-            </div>
+              {/* Google Login Button */}
+              <div className="form-control">
+                <button
+                  onClick={handleGoogleLogin}
+                  type="button"
+                  className="btn btn-outline btn-secondary w-full py-3 rounded-lg text-lg font-medium"
+                >
+                  <span className="mr-2">
+                    <FaGoogle></FaGoogle>
+                  </span>{" "}
+                  Login with Google
+                </button>
+              </div>
             </form>
 
-           
             <p className="text-center">
               Already have an account?{" "}
               <Link className="font-semibold" to="/login">
