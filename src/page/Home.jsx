@@ -3,7 +3,7 @@ import Slider from '../components/Slider';
 import TrendingArticles from '../components/TrendingArticles';
 // import AllPublishers from '../components/AllPublishers';
 import Plans from '../components/Plans';
-// import Statistics from '../components/Statistics';
+import Statistics from '../components/Statistics';
 // import SubscriptionPage from '../components/SubscriptionPage';
 import Testimonials from '../components/Testimonials';
 import FeaturedArticles from '../components/FeaturedArticles';
@@ -14,7 +14,7 @@ const Home = () => {
            <Slider></Slider>
            <TrendingArticles></TrendingArticles>
            {/* <AllPublishers></AllPublishers> */}
-           {/* <Statistics></Statistics> */}
+           <Statistics></Statistics>
            <Plans></Plans>
            {/* <SubscriptionPage></SubscriptionPage> */}
            <FeaturedArticles></FeaturedArticles>
@@ -22,6 +22,6 @@ const Home = () => {
 
         </div>
     );
-};
+}; 
 
 export default Home;

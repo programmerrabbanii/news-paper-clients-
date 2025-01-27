@@ -20,7 +20,7 @@ const Plans = () => {
             <li>All features included</li>
           </ul>
           <button
-            className="mt-3 px-4 py-2 bg-blue-500 text-white rounded-lg"
+            className="mt-3 px-4 py-2 bg-[#3F00E7] text-white rounded-lg"
             onClick={() => navigate("/subscription")}
           >
             Subscribe Now 

@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import CountUp from "react-countup";
+import { AuthContext } from "../auth/AuthProvider";
 
-const Statistics = ({ users }) => {
-  const totalUsers = users.length;
-  const premiumUsers = users.filter((user) => user.isPremium).length;
+const Statistics = () => {
+  const { user } = useContext(AuthContext);
+
+  // চেক করা হচ্ছে user অ্যারে কিনা
+  const totalUsers = Array.isArray(user) ? user.length : 0;
+  const premiumUsers = Array.isArray(user) 
+    ? user.filter((user) => user.isPremium).length 
+    : 0;
   const normalUsers = totalUsers - premiumUsers;
 
-  return (
+  return ( 
     <div className="statistics p-5 bg-gray-100 rounded-lg">
       <h2 className="text-2xl font-bold mb-4">User Statistics</h2>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
