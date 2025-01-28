@@ -36,7 +36,7 @@ const Plans = () => {
             {
               plan.buttonText && (<button
                 onClick={() => navigate("/subscription")}
-                className="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition"
+                className="mt-4 w-full bg-[#3C00E7] text-white py-2 rounded-lg transition"
               >
                 {plan.buttonText}
               </button>)
