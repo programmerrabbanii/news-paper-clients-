@@ -90,7 +90,7 @@ const AllArticles = () => {
               onClick={() => console.log(article._id)}
             >
               Details
-            </Link> 
+            </Link>
           </div>
         ))}
       </div>

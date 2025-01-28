@@ -2,12 +2,14 @@ import { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../auth/AuthProvider';
 import nlogo from "../assets/img/navlogo.png"
+import useAdmin from '../Hooks/useAdmin';
 
 const Navbar = () => {
   const { user, logOutUser } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-
+  const [isAdmin, isPending]=useAdmin()
+  
   const isActive = (path) => location.pathname === path;
 
   return (
@@ -17,6 +19,8 @@ const Navbar = () => {
         <Link to='/' className='flex gap-2 items-center'>
           <img className='w-24 object-cover h-14 text-white' src={nlogo} alt="" /> 
         </Link>
+
+        
 
         {/* Hamburger Menu */}
         <button
@@ -56,6 +60,11 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
+            {
+              isAdmin? <li> <Link to="/dashboard/Allusers">
+                Admin Dashboard
+                </Link>  </li> : undefined
+            }
             {
               user? <li>
               <Link

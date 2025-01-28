@@ -4,7 +4,6 @@ import Errorp from "../page/Errorp";
 import Home from "../page/Home";
 import AddArticles from "../page/AddArticles";
 import AllArticles from "../page/AllArticles";
-import Dashboard from "../page/Dashboard";
 import MyArticles from "../page/MyArticles";
 import Subscription from "../page/Subscription";
 import PremiumArticles from "../page/PremiumArticles";
@@ -13,6 +12,10 @@ import Login from "../page/Login";
 import Private from "./Private";
 import ArticleDetails from "../page/ArticalDeteles";
 import Payment from "../components/Payment";
+import DashboardLayout from "../layouts/DashboardLayout";
+import AllUser from "../Dashboardr/AdminDashboard/AllUser";
+import AddPubliser from "../Dashboardr/AdminDashboard/AddPubliser";
+import AllArticle from "../Dashboardr/AdminDashboard/AllArticle";
 
 const router=createBrowserRouter([
     {
@@ -67,6 +70,27 @@ const router=createBrowserRouter([
             } 
 
         ]
+    },
+
+    {
+        path:"dashboard",
+        element:<DashboardLayout></DashboardLayout>,
+        children:[
+            {
+                path:"Allusers",
+                element:<AllUser></AllUser>
+            },
+            {
+                path:"Articles",
+                element:<AllArticle></AllArticle>
+            },
+            {
+                path:"AddPublisher",
+                element:<AddPubliser></AddPubliser>
+            }
+        ]
+
     }
+
 ])
 export default router
