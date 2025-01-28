@@ -12,6 +12,7 @@ import Register from "../page/Register";
 import Login from "../page/Login";
 import Private from "./Private";
 import ArticleDetails from "../page/ArticalDeteles";
+import Payment from "../components/Payment";
 
 const router=createBrowserRouter([
     {
@@ -50,6 +51,11 @@ const router=createBrowserRouter([
             {
                 path: "/articles/:id",
                 element: <Private><ArticleDetails/></Private>,
+            },
+            {
+                path:"/payment",
+                element:<Private><Payment></Payment></Private>
+
             },
             {
                 path:"/register",

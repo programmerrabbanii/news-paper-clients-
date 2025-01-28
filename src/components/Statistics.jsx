@@ -13,8 +13,10 @@ const Statistics = () => {
       const response = await axios.get('http://localhost:5000/users-count');
       console.log(response.data);
       return response.data;  // Returning the fetched data
-    },
+    }, 
   });
+
+  
   const totalUsers = Array.isArray(user) ? user.length : 0;
   const premiumUsers = Array.isArray(user) 
     ? user.filter((user) => user.isPremium).length 
@@ -28,19 +30,19 @@ const Statistics = () => {
         <div className="bg-white p-4 shadow rounded-lg">
           <h3 className="text-lg font-semibold">Total Users</h3>
           <p className="text-3xl font-bold text-blue-500">
-            <CountUp end={user_count.count} />
+            <CountUp end={user_count.totalUsers} />
           </p> 
         </div>
         <div className="bg-white p-4 shadow rounded-lg">
           <h3 className="text-lg font-semibold">Premium Users</h3>
           <p className="text-3xl font-bold text-green-500">
-            <CountUp end={premiumUsers} />
+            <CountUp end={user_count.premiumUsers} />
           </p>
         </div>
         <div className="bg-white p-4 shadow rounded-lg">
           <h3 className="text-lg font-semibold">Normal Users</h3>
           <p className="text-3xl font-bold text-red-500">
-            <CountUp end={normalUsers} />
+            <CountUp end={user_count.freeUsers} />
           </p>
         </div>
       </div>
