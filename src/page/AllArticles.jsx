@@ -15,7 +15,7 @@ const AllArticles = () => {
   } = useQuery({
     queryKey: ["articles", searchQuery, selectedPublisher, selectedTag],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/news", {
+      const res = await axios.get("https://newspaper-server-two.vercel.app/news", {
         params: {
           title: searchQuery,
           publisher: selectedPublisher,

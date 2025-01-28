@@ -55,7 +55,7 @@ const Register = () => {
         })
           .then(() => {
             // Post user data to the server
-            axios.post(`http://localhost:5000/users?email=${email}`, {
+            axios.post(`https://newspaper-server-two.vercel.app/users?email=${email}`, {
               name,
               email,
               photo

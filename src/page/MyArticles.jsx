@@ -9,7 +9,7 @@ const MyArticles = () => {
   const { data: articles, isLoading, error } = useQuery({
     queryKey: ["myArticles"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/news");
+      const res = await axios.get("https://newspaper-server-two.vercel.app/news");
       return res.data;
     },
   });
@@ -50,7 +50,7 @@ const MyArticles = () => {
       if (result.isConfirmed) {
         try {
             
-          await axios.delete(`http://localhost:5000/articles/${id}`);
+          await axios.delete(`https://newspaper-server-two.vercel.app/articles/${id}`);
           queryClient.invalidateQueries({ queryKey: ["myArticles"] });
           Swal.fire("Deleted!", "Your article has been deleted.", "success");
         } catch (err) {
@@ -75,7 +75,7 @@ const MyArticles = () => {
       if (result.isConfirmed) {
         try {
           // Backend update request
-          await axios.put(`http://localhost:5000/articles/${id}`, {
+          await axios.put(`https://newspaper-server-two.vercel.app/articles/${id}`, {
             title: result.value,
           });
   

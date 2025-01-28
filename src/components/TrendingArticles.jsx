@@ -7,7 +7,7 @@ const TrendingArticles = () => {
   const { data: articles = [], isLoading, error } = useQuery({
     queryKey: ['articles'],
     queryFn: async () => {
-      const response = await axios.get('http://localhost:5000/news');
+      const response = await axios.get('https://newspaper-server-two.vercel.app/news');
       return response.data;  // Returning the fetched data
     },
   });

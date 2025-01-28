@@ -10,14 +10,14 @@ const AllArticle = () => {
     const { data: articles = [], isLoading, error } = useQuery({
         queryKey: ["articles"],
         queryFn: async () => {
-            const res = await axios.get("http://localhost:5000/news");
+            const res = await axios.get("https://newspaper-server-two.vercel.app/news");
             return res.data;
         }
     });
 
     const approveArticle = useMutation({
         mutationFn: async (id) => {
-            await axios.patch(`http://localhost:5000/news/${id}/approve`);
+            await axios.patch(`https://newspaper-server-two.vercel.app/news/${id}/approve`);
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["articles"] });
@@ -26,7 +26,7 @@ const AllArticle = () => {
 
     const declineArticle = useMutation({
         mutationFn: async ({ id, reason }) => {
-            await axios.patch(`http://localhost:5000/news/${id}/decline`, { reason });
+            await axios.patch(`https://newspaper-server-two.vercel.app/news/${id}/decline`, { reason });
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["articles"] });
@@ -35,7 +35,7 @@ const AllArticle = () => {
 
     const makePremium = useMutation({
         mutationFn: async (id) => {
-            await axios.patch(`http://localhost:5000/news/${id}/premium`);
+            await axios.patch(`https://newspaper-server-two.vercel.app/news/${id}/premium`);
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["articles"] });

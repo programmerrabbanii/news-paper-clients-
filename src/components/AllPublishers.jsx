@@ -6,7 +6,7 @@ const AllPublishers = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["sliderData"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/publisher"); // তোমার API URL
+      const res = await axios.get("https://newspaper-server-two.vercel.app/publisher"); // তোমার API URL
       return res.data;
     },
   });

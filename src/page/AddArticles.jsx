@@ -65,7 +65,7 @@ const AddArticles = () => {
       };
 
       // Post article data to the backend
-      const response = await axios.post('http://localhost:5000/news', articleData); // Replace '/api/articles' with your API endpoint
+      const response = await axios.post('https://newspaper-server-two.vercel.app/news', articleData); // Replace '/api/articles' with your API endpoint
       console.log(response.data);
       Swal.fire({
         position: "top-end", 

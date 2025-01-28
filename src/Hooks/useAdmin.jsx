@@ -9,7 +9,7 @@ const useAdmin = () => {
     queryKey: ["isAdmin", axios, user?.email],
     queryFn: async () => {
       if (user) {
-        const res = await axios.get(`http://localhost:5000/users/admin/${user?.email}`);
+        const res = await axios.get(`https://newspaper-server-two.vercel.app/users/admin/${user?.email}`);
         const data = await res?.data;
         if (data) {
           return data?.isAdmin;

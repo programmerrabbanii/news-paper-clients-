@@ -8,7 +8,7 @@ const Slider = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["sliderData"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/news"); // তোমার API URL
+      const res = await axios.get("https://newspaper-server-two.vercel.app/news"); // তোমার API URL
       return res.data;
     },
   });

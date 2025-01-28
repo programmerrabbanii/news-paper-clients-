@@ -10,7 +10,7 @@ const ArticleDetails = () => {
     const { data: article = {}, isLoading, error } = useQuery({
         queryKey: ['article', id],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/articles/${id}`);
+            const res = await axios.get(`https://newspaper-server-two.vercel.app/articles/${id}`);
             return res.data;
         },
         enabled: !!id, // id না থাকলে কোয়েরি চালাবে না

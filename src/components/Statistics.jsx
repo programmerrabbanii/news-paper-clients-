@@ -10,7 +10,7 @@ const Statistics = () => {
   const { data: user_count = [], isLoading, error } = useQuery({
     queryKey:  ['user_count',axios],
     queryFn: async () => {
-      const response = await axios.get('http://localhost:5000/users-count');
+      const response = await axios.get('https://newspaper-server-two.vercel.app/users-count');
       console.log(response.data);
       return response.data;  // Returning the fetched data
     }, 

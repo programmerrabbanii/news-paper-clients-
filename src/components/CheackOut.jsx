@@ -18,7 +18,7 @@ const CheackOut = ({ totalPayment }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.post(`http://localhost:5000/create-payment-intent`, {
+        const res = await axios.post(`https://newspaper-server-two.vercel.app/create-payment-intent`, {
           price: totalPayment,
         });
         const data = await res?.data?.clientSecret;
@@ -97,7 +97,7 @@ const CheackOut = ({ totalPayment }) => {
 
                 const postPaymentInfo = async() => {
                     try{
-                        const res = await axios.post(`http://localhost:5000/payments?email=${user?.email}`, userPaymentInfo);
+                        const res = await axios.post(`https://newspaper-server-two.vercel.app/payments?email=${user?.email}`, userPaymentInfo);
                         const data = await res?.data;
                         console.log('Payment info set to the db:', data);
                     }catch(err){

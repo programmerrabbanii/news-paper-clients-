@@ -13,7 +13,7 @@ const { data: users=[], isLoading, isError, error, refetch } = useQuery(
     {
         queryKey:['users'], // Query key
         queryFn: async  () => {
-          const response = await axios.get('http://localhost:5000/allusers');
+          const response = await axios.get('https://newspaper-server-two.vercel.app/allusers');
           setLoading(false)
           refetch()
           return response.data;
@@ -26,7 +26,7 @@ const { data: users=[], isLoading, isError, error, refetch } = useQuery(
   const handleMakeAdmin = async (userId) => {
     try {
       // Make a PUT request to update the user's admin status
-      const res = await axios.patch(`http://localhost:5000/makeadmin/${userId}`);
+      const res = await axios.patch(`https://newspaper-server-two.vercel.app/makeadmin/${userId}`);
 
        const data=await res.data
        console.log(data);

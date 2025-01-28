@@ -6,7 +6,7 @@ const PostCard = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["newsData"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/news"); 
+      const res = await axios.get("https://newspaper-server-two.vercel.app/news"); 
       return res.data; 
     },
   });
