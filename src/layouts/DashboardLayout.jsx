@@ -4,14 +4,15 @@ import AdminRoute from '../components/AdminRoute';
 
 const DashboardLayout = () => {
     return (
-        <div className='flex'>
-            <div className='w-[35%] border p-3'>
-                <h2 className='mb-2'>News paper web applicatons</h2>
-                <AdminRoute></AdminRoute>
-
+        <div className="flex flex-col md:flex-row">
+            {/* Sidebar */}
+            <div className="w-full md:w-1/4 ">
+                <AdminRoute />
             </div>
-            <div className='w-[65%] border p-3'>
-                <Outlet></Outlet>
+
+            {/* Main Content */}
+            <div className="w-full md:w-3/4">
+                <Outlet />
             </div>
         </div>
     );

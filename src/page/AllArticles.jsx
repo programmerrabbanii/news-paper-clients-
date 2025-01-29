@@ -26,7 +26,7 @@ const AllArticles = () => {
     },
   });
 
-  if (isLoading) return <p className="text-center text-lg font-semibold">Loading...</p>;
+  if (isLoading) return <span className=" text-center  loading loading-bars loading-lg">Loading</span>;
   if (error) return <p className="text-center text-lg text-red-500">Error loading articles!</p>;
 
   return (

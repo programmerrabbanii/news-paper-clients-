@@ -24,7 +24,7 @@ const AddArticles = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value});
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleTagsChange = (selectedOptions) => {
@@ -74,11 +74,21 @@ const AddArticles = () => {
         showConfirmButton: false,
         timer: 1500
       });
+
+      // Reset form data after successful submission
+      setFormData({
+        title: '',
+        image: null,
+        publisher: '',
+        tags: [],
+        description: '', 
+      });
+
     } catch (error) {
       console.error('Error uploading image or submitting form:', error);
       Swal.fire({
         position: "top-end",
-        icon: "success",
+        icon: "error",
         title: "Error occurred while submitting the form.",
         showConfirmButton: false,
         timer: 1500

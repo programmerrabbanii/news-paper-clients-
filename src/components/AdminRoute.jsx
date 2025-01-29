@@ -1,21 +1,63 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { FaUsers, FaNewspaper, FaUserPlus, FaHome } from 'react-icons/fa';
 
 const AdminRoute = () => {
     return (
-        <div>
-            <ul>
-                <li className='mb-1 border-2 rounded-md hover:bg-gray-500'>
-                    <Link to="/dashboard/Allusers">All Users</Link>
+        <div className="p-4 bg-[#E21C6F] text-white shadow-lg h-screen">
+            <h2 className='mb-4 text-2xl font-bold'>News Paper Web Applications</h2>
+            <ul className="space-y-2">
+                <li>
+                    <NavLink 
+                        to="/dashboard/Allusers" 
+                        className={({ isActive }) => 
+                            `group flex items-center gap-3 p-3 border border-gray-600 rounded-lg transition duration-300 ${
+                                isActive ? 'bg-gray-900 font-bold' : 'hover:bg-gray-700'
+                            }`
+                        }
+                    >
+                        <FaUsers className="text-xl text-white group-hover:text-white" />
+                        <span className="flex-1">All Users</span>
+                    </NavLink>
                 </li>
-                <li className='mb-1 border-2 rounded-md hover:bg-gray-500'>
-                    <Link to="/dashboard/Articles"> All Articles</Link>
+                <li>
+                    <NavLink 
+                        to="/dashboard/Articles" 
+                        className={({ isActive }) => 
+                            `group flex items-center gap-3 p-3 border border-gray-600 rounded-lg transition duration-300 ${
+                                isActive ? 'bg-gray-900 font-bold' : 'hover:bg-gray-700'
+                            }`
+                        }
+                    >
+                        <FaNewspaper className="text-xl text-white group-hover:text-white" />
+                        <span className="flex-1">All Articles</span>
+                    </NavLink>
                 </li>
-                <li className='mb-1 border-2 rounded-md hover:bg-gray-500'>
-                    <Link to="/dashboard/AddPublisher">Add Publisher</Link>
+                <li>
+                    <NavLink 
+                        to="/dashboard/AddPublisher" 
+                        className={({ isActive }) => 
+                            `group flex items-center gap-3 p-3 border border-gray-600 rounded-lg transition duration-300 ${
+                                isActive ? 'bg-gray-900 font-bold' : 'hover:bg-gray-700'
+                            }`
+                        }
+                    >
+                        <FaUserPlus className="text-xl text-white group-hover:text-white" />
+                        <span className="flex-1">Add Publisher</span>
+                    </NavLink>
                 </li>
-                <li className='mb-1 border-2 rounded-md hover:bg-gray-500'>
-                    <Link to="/">Home</Link>
+                <li>
+                    <NavLink 
+                        to="/" 
+                        className={({ isActive }) => 
+                            `group flex items-center gap-3 p-3 border border-gray-600 rounded-lg transition duration-300 ${
+                                isActive ? 'bg-gray-900 font-bold' : 'hover:bg-gray-700'
+                            }`
+                        }
+                    >
+                        <FaHome className="text-xl text-white group-hover:text-white" />
+                        <span className="flex-1">Home</span>
+                    </NavLink>
                 </li>
             </ul>
         </div>

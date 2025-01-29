@@ -12,7 +12,7 @@ const MyArticles = () => {
       const res = await axios.get("https://newspaper-server-two.vercel.app/news");
       return res.data;
     },
-  });
+  }); 
 
   if (isLoading) {
     return (
