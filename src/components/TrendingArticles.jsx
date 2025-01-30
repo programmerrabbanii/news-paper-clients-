@@ -22,7 +22,11 @@ const TrendingArticles = () => {
   // If data is loading
   if (isLoading) {
     return (
-      <div className="p-4 text-center text-gray-600">Loading articles...</div>
+      <div className="p-4 text-center text-gray-600">Loading articles...
+      <span className="loading loading-bars loading-lg"></span>
+
+      
+      </div>
     );
   }
 

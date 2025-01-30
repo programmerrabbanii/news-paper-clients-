@@ -6,13 +6,22 @@ import { Link } from "react-router-dom";
 const MyArticles = () => {
     const queryClient = useQueryClient();
 
-  const { data: articles, isLoading, error } = useQuery({
-    queryKey: ["myArticles"],
-    queryFn: async () => {
-      const res = await axios.get("https://newspaper-server-two.vercel.app/news");
-      return res.data;
-    },
-  });  
+    const { data: articles, isLoading, error } = useQuery({
+      queryKey: ["myArticles"],
+      queryFn: async () => {
+        const userEmail = "user@example.com"; // Replace this with the logged-in user's email
+        const token = localStorage.getItem("token"); // If you're using token-based authentication
+        
+        const res = await axios.get(`https://newspaper-server-two.vercel.app/my-article/${userEmail}`, {
+          headers: {
+            Authorization: `Bearer ${token}`, // Pass the token if required
+          }, 
+        });
+    
+        return res.data; // Return the data from the response
+      },
+    });
+    
 
   if (isLoading) {
     return (
