@@ -2,27 +2,36 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../auth/AuthProvider";
 
 const MyArticles = () => {
     const queryClient = useQueryClient();
+    const { user } = useContext(AuthContext);
 
-    const { data: articles, isLoading, error } = useQuery({
-      queryKey: ["myArticles"],
-      queryFn: async () => {
-        const userEmail = "user@example.com"; // Replace this with the logged-in user's email
-        const token = localStorage.getItem("token"); // If you're using token-based authentication
-        
-        const res = await axios.get(`https://newspaper-server-two.vercel.app/my-article/${userEmail}`, {
-          headers: {
-            Authorization: `Bearer ${token}`, // Pass the token if required
-          }, 
-        });
     
-        return res.data; // Return the data from the response
+    const userEmail = user?.email; 
+  
+    const { data: articles=[], isLoading, error,refetch } = useQuery({
+      queryKey: ["myArticles", userEmail],
+      queryFn: async () => {
+        if (!userEmail) {
+          throw new Error("User is not logged in");
+        }
+        
+        try {
+          const res = await axios.get(
+            `http://localhost:5000/my-article?email=${userEmail}`,
+          );
+          return res.data;
+        } catch (error) {
+          console.error("Error fetching articles:", error); // বিস্তারিত ত্রুটি দেখানোর জন্য
+          throw new Error("Failed to fetch articles");
+        }
       },
     });
     
-
+    
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -33,11 +42,11 @@ const MyArticles = () => {
     );
   }
 
-  if (error) {
+  if (articles.length==0) {
     return (
       <div className="flex justify-center items-center h-screen">
         <p className="text-red-500 text-xl font-semibold">
-          Something went wrong: {error.message}
+          No Articles Found..
         </p>
       </div>
     );
@@ -59,12 +68,13 @@ const MyArticles = () => {
       if (result.isConfirmed) {
         try {
             
-          await axios.delete(`https://newspaper-server-two.vercel.app/articles/${id}`);
-          queryClient.invalidateQueries({ queryKey: ["myArticles"] });
+          await axios.delete(`http://localhost:5000/articles/${id}`);
           Swal.fire("Deleted!", "Your article has been deleted.", "success");
+          refetch()
         } catch (err) {
           Swal.fire("Error!", "Failed to delete the article.", "error");
         }
+
       }
     });
   };

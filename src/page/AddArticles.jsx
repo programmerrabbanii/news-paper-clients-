@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../auth/AuthProvider';
+import { useQuery } from '@tanstack/react-query';
+import moment from 'moment';
 
 const AddArticles = () => {
+  const {user}=useContext(AuthContext)
   const [formData, setFormData] = useState({
     title: '',
     image: null,
@@ -21,6 +25,23 @@ const AddArticles = () => {
     { value: 'health', label: 'Health' },
     { value: 'sports', label: 'Sports' },
   ]);
+
+  const { data: allpublishers=[], isLoading, error,refetch } = useQuery({
+    queryKey: ["allpublishers"],
+    queryFn: async () => {
+      
+      try {
+        const res = await axios.get(
+          `http://localhost:5000/publisher`,
+        );
+    
+        return res.data;
+      } catch (error) {
+        console.error("Error fetching Publisher:", error); // বিস্তারিত ত্রুটি দেখানোর জন্য
+        throw new Error("Failed to fetch Publisher");
+      }
+    },
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,17 +77,21 @@ const AddArticles = () => {
 
       // Prepare final data
       const articleData = { 
+
         title: formData.title, 
         image: imageUrl,
+        userName:user.displayName,
+        postDate:moment().format("DD-MM-YYYY"),
         viewCount: 0,
+        email:user.email,
         publisher: formData.publisher, 
         tags: formData.tags.map((tag) => tag.value), 
         description: formData.description, 
+        apporoveStatus:'pending'
       };
-
+     
       // Post article data to the backend
-      const response = await axios.post('https://newspaper-server-two.vercel.app/news', articleData); // Replace '/api/articles' with your API endpoint
-      console.log(response.data);
+      const response = await axios.post('http://localhost:5000/news', articleData); // Replace '/api/articles' with your API endpoint
       Swal.fire({
         position: "top-end", 
         icon: "success",
@@ -134,9 +159,9 @@ const AddArticles = () => {
             required
           >
             <option value="">Select a Publisher</option>
-            {publishers.map((publisher) => (
-              <option key={publisher.value} value={publisher.value}>
-                {publisher.label}
+            {allpublishers.map((publisher) => (
+              <option key={publisher._id} value={publisher.title}>
+                {publisher.title}
               </option>
             ))}
           </select>
