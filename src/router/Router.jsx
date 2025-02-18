@@ -27,10 +27,12 @@ const router=createBrowserRouter([
                 path:"/",
                 element:<Home></Home>
             },
+
             {
                 path:"/addartical",
-                element:<Private><AddArticles></AddArticles></Private>
+                element:<AddArticles></AddArticles>
             },
+
             {
                 path:"/allartical",
                 element:<AllArticles></AllArticles>
@@ -41,7 +43,7 @@ const router=createBrowserRouter([
             // },
             {
                 path:"/myartical",
-                element:<Private><MyArticles></MyArticles></Private>
+                element:<MyArticles></MyArticles>
             },
             {
                 path:"/subscription",
@@ -53,7 +55,7 @@ const router=createBrowserRouter([
             },
             {
                 path: "/articles/:id",
-                element: <Private><ArticleDetails/></Private>,
+                element:<ArticleDetails/>
             },
             {
                 path:"/payment",

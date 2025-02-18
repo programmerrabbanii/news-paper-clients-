@@ -61,7 +61,7 @@ const AllUser = () => {
                   <img src={user?.photo} alt="Profile" className="w-12 h-12 rounded-full" />
                 </td>
                 <td className="py-2 px-4">
-                  {user.adminStatus === 'admin' ? (
+                  {user.adminStatues === 'admin' ? (
                     <span className="bg-green-500 text-white py-1 px-3 rounded-full">Admin</span>
                   ) : (
                     <button

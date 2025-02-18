@@ -21,7 +21,7 @@ const MyArticles = () => {
         
         try {
           const res = await axios.get(
-            `http://localhost:5000/my-article?email=${userEmail}`,
+            `https://newspaper-server-two.vercel.app/my-article?email=${userEmail}`,
           );
           return res.data;
         } catch (error) {
@@ -68,7 +68,7 @@ const MyArticles = () => {
       if (result.isConfirmed) {
         try {
             
-          await axios.delete(`http://localhost:5000/articles/${id}`);
+          await axios.delete(`https://newspaper-server-two.vercel.app/articles/${id}`);
           Swal.fire("Deleted!", "Your article has been deleted.", "success");
           refetch()
         } catch (err) {

@@ -11,7 +11,7 @@ const CheackOut = ({ totalPayment }) => {
   const [clientSecret, setClientSecret] = useState("");
   console.log(clientSecret);
   const stripe = useStripe();
-  const elements = useElements();
+  const elements = useElements(); 
   const { user } = useContext(AuthContext);
 
   // useEffect

@@ -11,7 +11,7 @@ const AddArticles = () => {
   const [formData, setFormData] = useState({
     title: '',
     image: null,
-    publisher: '',
+    publisher: '', 
     tags: [],
     description: '', 
   });
@@ -32,7 +32,7 @@ const AddArticles = () => {
       
       try {
         const res = await axios.get(
-          `http://localhost:5000/publisher`,
+          `https://newspaper-server-two.vercel.app/publisher`,
         );
     
         return res.data;
@@ -91,7 +91,7 @@ const AddArticles = () => {
       };
      
       // Post article data to the backend
-      const response = await axios.post('http://localhost:5000/news', articleData); // Replace '/api/articles' with your API endpoint
+      const response = await axios.post('https://newspaper-server-two.vercel.app/news', articleData); // Replace '/api/articles' with your API endpoint
       Swal.fire({
         position: "top-end", 
         icon: "success",

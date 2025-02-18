@@ -66,7 +66,7 @@ const Navbar = () => {
                 </Link>  </li> : undefined
             }
             {
-              user? <li>
+             
               <Link
                 to='/addartical'
                 className={`hover:text-gray-200 ${
@@ -75,7 +75,7 @@ const Navbar = () => {
               >
                 Add Artical
               </Link>
-            </li> : null
+            
             }
             
               <li>
@@ -88,22 +88,8 @@ const Navbar = () => {
                   All Artical
                 </Link>
               </li>
-            
-            
-              {/* <li>
-                <Link
-                  to='/dashboard'
-                  className={`hover:text-gray-200 ${
-                    isActive('/dashboard') ? 'border-b-2 border-white' : ''
-                  }`}
-                >
-                  Dashboard
-                </Link>
-              </li> */}
-            
-           
               {
-                user? <li>
+                
                 <Link
                   to='/myartical'
                   className={`hover:text-gray-200 ${
@@ -112,7 +98,7 @@ const Navbar = () => {
                 >
                  My Artical
                 </Link>
-              </li> : null
+              
               }
               {
                 user? <li>

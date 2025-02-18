@@ -23,6 +23,7 @@ const AllArticles = () => {
         },
       });
       return res.data;
+      
     },
   });
 
@@ -62,11 +63,11 @@ const AllArticles = () => {
 
       {/* Articles List */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {articles.map((article) => (
+        {articles.map((article) => article.apporoveStatus!== "pending"&& article.apporoveStatus!=="Reject" &&  (
           <div
             key={article.id}
             className={`p-5 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300 ${
-              article.isPremium ? "bg-yellow-100" : "bg-white"
+              article.apporoveStatus=="Premium" ? "bg-yellow-300" : "bg-white"
             }`}
           >
             <img
@@ -77,12 +78,20 @@ const AllArticles = () => {
             <h4 className="text-xl font-semibold mb-2">{article.title}</h4>
             <p className="text-sm text-gray-500 mb-2">By {article.publisher}</p>
             <p className="text-gray-700 mb-4">{article.description.slice(0, 100)}...</p>
-            <Link
+            { article.apporoveStatus=="Premium"?
+              <Link 
               to={`/articles/${article._id}`}
               className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition"
             >
               Read More
-            </Link>
+            </Link>:
+            <button 
+            disabled={true}
+            className="inline-block px-4 py-2 bg-gray-600 text-white rounded-lg shadow-md  transition"
+          >
+            Read More
+          </button>
+            }
           </div>
         ))}
       </div>
