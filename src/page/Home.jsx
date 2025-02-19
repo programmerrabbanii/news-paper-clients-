@@ -4,8 +4,8 @@ import TrendingArticles from '../components/TrendingArticles';
 import Plans from '../components/Plans';
 import Statistics from '../components/Statistics';
 import Testimonials from '../components/Testimonials';
-import FeaturedArticles from '../components/FeaturedArticles';
 import LatestNews from '../components/LatestNews';
+import FeaturedInterviews from '../components/FeaturedInterviews';
 
 const Home = () => {
     return (
@@ -15,7 +15,7 @@ const Home = () => {
            <TrendingArticles></TrendingArticles>
            <Statistics></Statistics>
            <Plans></Plans>
-           <FeaturedArticles></FeaturedArticles>
+           <FeaturedInterviews></FeaturedInterviews>
            <Testimonials></Testimonials> 
         </div>
     );
