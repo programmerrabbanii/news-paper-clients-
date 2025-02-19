@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const TrendingArticles = () => {
   const {
     data: articles = [],
-    isLoading,
+    isLoading, 
     error,
   } = useQuery({ 
     queryKey: ["articles"],
