@@ -7,12 +7,14 @@ import Testimonials from '../components/Testimonials';
 import LatestNews from '../components/LatestNews';
 import FeaturedInterviews from '../components/FeaturedInterviews';
 import FAQ from '../components/FAQ';
+import OpinionArticles from '../components/OpinionArticles';
 
 const Home = () => {
     return (
         <div>
            <Slider></Slider>
            <LatestNews></LatestNews>
+           <OpinionArticles></OpinionArticles>
            <TrendingArticles></TrendingArticles>
            <Statistics></Statistics>
            <Plans></Plans>
