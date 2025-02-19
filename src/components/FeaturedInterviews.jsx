@@ -10,7 +10,7 @@ const FeaturedInterviews = () => {
 
     return (
         <section className="py-10">
-            <div className="mx-auto max-w-7xl px-4">
+            <div className="w-11/12 mx-auto  px-4">
                 <h2 className="text-3xl font-bold mb-6 text-center">Featured Interviews</h2>
                 <div className="grid md:grid-cols-2 gap-6">
                     {interviews.map((interview, index) => (

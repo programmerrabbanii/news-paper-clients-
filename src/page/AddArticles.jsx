@@ -9,7 +9,7 @@ import moment from 'moment';
 const AddArticles = () => {
   const {user}=useContext(AuthContext)
   const [formData, setFormData] = useState({
-    title: '',
+    title: '', 
     image: null,
     publisher: '', 
     tags: [],

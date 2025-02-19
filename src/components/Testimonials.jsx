@@ -41,7 +41,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-purple-100 via-pink-100 to-blue-100 py-16">
+    <section className=" py-16">
       <div className="max-w-4xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
           What Our Users Say

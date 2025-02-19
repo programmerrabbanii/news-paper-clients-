@@ -5,9 +5,9 @@ const LatestNews = () => {
    
 
     return (
-        <section className="bg-gray-50 py-12 px-6">
+        <section className=" py-12 px-6">
             <div className="max-w-7xl mx-auto text-center">
-                <h2 className="text-4xl font-extrabold text-gray-900 mb-8">🔥 Latest  News 🔥</h2>
+                <h2 className="text-4xl font-bold text-gray-900 mb-8">Latest  News </h2>
                 <p className="text-lg text-gray-600 mb-6">Stay updated with the latest headlines from around the world</p> 
                 <Marquee pauseOnHover={true} speed={60} gradient={true} gradientWidth={50} gradientColor={[245, 245, 245]}>
                     <div className="flex space-x-8">

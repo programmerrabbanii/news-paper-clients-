@@ -19,7 +19,7 @@ const Plans = () => {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto p-6">
+    <div className=" w-11/12 mx-auto p-6">
       <h2 className="text-3xl font-bold text-center mb-6">Choose Your Plan</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {features.map((plan, index) => (

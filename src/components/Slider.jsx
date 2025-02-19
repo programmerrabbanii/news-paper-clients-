@@ -4,16 +4,15 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Slider = () => {
-  // API থেকে ডেটা ফেচ করো
+ 
   const { data, isLoading, error } = useQuery({
     queryKey: ["sliderData"],
     queryFn: async () => {
-      const res = await axios.get("https://newspaper-server-two.vercel.app/news"); // তোমার API URL
+      const res = await axios.get("https://newspaper-server-two.vercel.app/news"); 
       return res.data;
     },
   });
 
-  // লোডিং বা এরর মেসেজ দেখানো
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -22,28 +21,26 @@ const Slider = () => {
     return <p>Error: {error.message}</p>;
   }
 
-  // ভিউ কাউন্ট অনুযায়ী ডেটা সাজানো
   const sortedData = [...data].sort((a, b) => b.viewCount - a.viewCount);
 
-  // স্লাইডারের UI
   return (
     <div className="carousel w-full">
       {sortedData.slice(0,6).map((item, index) => (
-        <div
+        <div 
           key={item._id}
           id={`slide${index + 1}`}
-          className="carousel-item relative w-full h-[70vh]" // স্লাইডারের উচ্চতা 70vh সেট করা
+          className="carousel-item relative w-full h-[70vh]" // 
         >
           <div className="w-full h-[70vh]">
           <Link  to={`/articles/${item._id}`}>
           <img
             src={item.image}
             alt={item.title}
-            className="w-full h-full object-cover" // ইমেজ পুরো স্লাইডার কভার করবে
+            className="w-full h-full object-cover" 
           />
           </Link>
           </div>
-          <Link to={`/articles/${item._id}`}><div className="absolute bottom-5 left-5 bg-black bg-opacity-50 p-5 rounded-lg text-white">
+          <Link to={`/articles/${item._id}`}><div className="absolute bottom-5 left-24 w-[40%] bg-black bg-opacity-50 p-5 rounded-lg text-white">
             <h2 className="text-xl font-bold">{item.title}</h2>
             <p>{item.description}</p>
           </div></Link>

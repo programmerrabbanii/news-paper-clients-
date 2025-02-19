@@ -41,7 +41,7 @@ const OpinionArticles = () => {
       {articles.map((article, index) => (
         <div key={index} className="bg-white shadow-lg rounded-lg p-4 mb-4 border border-gray-300">
           <img src={article.image} alt={article.title} className="w-full h-48 object-cover rounded-lg mb-4" />
-          <h5 className="text-2xl font-semibold text-blue-600">{article.title}</h5>
+          <h5 className="text-lg font-semibold ">{article.title}</h5>
           <p className="text-gray-500">{`${article.author} | ${article.date}`}</p>
           <p className="text-gray-700 mt-2">{article.content}</p>
         </div>
